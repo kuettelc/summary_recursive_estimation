@@ -1,20 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Cheatsheet
-% LaTeX Template
-% Version 1.0 (12/12/15)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Michael Müller (https://github.com/cmichi/latex-template-collection) with
-% extensive modifications by Vel (vel@LaTeXTemplates.com)
-%
-% License:
-% The MIT License (see included LICENSE file)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
@@ -38,7 +21,7 @@
 \usepackage[ % This block contains information used to annotate the PDF
 colorlinks=false, 
 pdftitle={Cheatsheet}, 
-pdfauthor={John Smith}, 
+pdfauthor={Christian K\"uttel}, 
 pdfsubject={Compilation of useful shortcuts}, 
 pdfkeywords={Random Software, Cheatsheet}
 ]{hyperref}
@@ -79,13 +62,7 @@ pdfkeywords={Random Software, Cheatsheet}
 %	HEADING ONE
 %----------------------------------------------------------------------------------------
 
-\sectiontitle{Discrete system recap}
-
-Euler Discretization: $x(k+1) = x(k) + T_sg^c(x(k),u(k))$
-Euler model -> DT: $A = I + T_s A^c, B = T_sB^c$ \\
-Exact Discretization: $A = e^{A^c T_s}, B = (A^c)^{-1}(A-I)B^c$
-Solution: $x(k+N) = A^Nx(k) + \sum_{i=0}^{N-1} A^iBu(k+N-1-i)$
-Taylor of exponential: $e^{A^c T_s} = \sum_{n=0}^{\infty}\frac{(A^ct)^n}{n!}$
+\textbf{Probability Recap}
 
 \sectiontitle{Coordinate Transformation}
 
