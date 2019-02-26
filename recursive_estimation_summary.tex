@@ -35,6 +35,8 @@ pdfkeywords={Random Software, Cheatsheet}
 
 \newcommand{\sectiontitle}[1]{\textbf{#1}} % Custom command for subsection titles
 
+\DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}}
 %----------------------------------------------------------------------------------------
 
 \begin{document}
@@ -64,44 +66,9 @@ pdfkeywords={Random Software, Cheatsheet}
 
 \textbf{Probability Recap}
 
-\sectiontitle{Coordinate Transformation}
-
-considering: $\tilde{x}(k) = Tx(k)$, then $\tilde{A} = TAT^{-1}, \tilde{B} = TB, \tilde{C} = CT^{-1}, \tilde{D} = D$
-
-\sectiontitle{Stability, Controlability, Observability (Linear)}
-
-Stable iff: $|\lambda_j| < 1$, where $\lambda$ eigenvlaues of A \\
-Controllability (nec and suff): rank([$B AB ... A^{n-1}B$]) = $n$\\
-Obs (nec and suff): rank([$C^T (CA)^T ... (CA^{n-1})^T$]$^T$) = $n$
-
-\sectiontitle{Lyapunov Stability non-linear}
-
-system of form: $x(k+1) = g(x(k))$, with \emph{equilibrium point} at $\bar{x}$, i.e. $g(\bar{x}) = \bar{x}$.
-Find a lyapunov function $V(x)$ that satisfies the following constraints: $V(0) = 0 \textit{ and } V(x) > 0, \forall x \in \Omega$. 
-$V(g(x)) - V(x) \leq -\alpha(x) \forall x \in \Omega$\\
-If a V(x) is admitted then x = 0 is \textbf{asymptotically stable}. If, however, $\alpha(x)$ is positive semi-definite, it is Lyapunov stable in $\Omega$. If additionally, V goes to infinity as x goes to infinity, x = 0 is globally asymptotically stable.\\
-\textbf{Indirect method}
-
-Linearize to obtain A matrix. If all ev's stable, then the origin is asymptotically stable. If one ev is not stable, then the origin is unstable. If at least 1 ev is on the border, no conclusions can be drawn.
-
-\textbf{Global Lyapunov stability of Linear Systems}
-
-System: $x(k+1) = Ax(k)$, Lyapunov fct: $V(x) = x^TPx$, $P>0$. Energy decresase condition: $V(Ax(k)) - V(x(k)) = x^T(k)(A^TPA-P)x(k) \leq -\alpha(x(k))$. Choose $\alpha(x(k)) = x^T(k)Qx(k), Q > 0$. $\Rightarrow$ find $P>0$ with $A^TPA-P = -Q, Q>0$. Theorem: unique solution $P>0$ exists, iff $|\lambda_i (A)| < 1$. Stability is always global for linear systems.
-
-
-
-\begin{tikzpicture}
-\begin{scope}[xshift=1.5cm]
-    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.7\textwidth]{figures/latexTemplate.png}};
-    
-    \begin{scope}[x={(image.south east)},y={(image.north west)}]
-    	\node [anchor=west] (test) at (1.1,0.7) {test};
-        \draw[red,ultra thick,rounded corners] (0.44,0.80) rectangle (0.55,0.95);
-        \draw [-latex, ultra thick, red] (test.west) to[out=-180, in=-120] (0.48,0.80);
-    \end{scope}
-    
-\end{scope}
-\end{tikzpicture}%
+Summation rule: $p_t(i) = \sum_{j=1}^{L} p_{ts}(i,j)$ and vice versa\\
+Prod rule: $p_{ts}(i,j) = \frac{n_{ts}(i,j)}{N} = \frac{n_{ts}(i,j) n_t(i)}{n_t(i)N} = p_{s|t}(j|i)p_t(i) = \frac{n_{ts}(i,j) n_s(j)}{n_s(j)N} = p_{t|s}(i|j)p_s(j)$\\
+Discrete random variable: $\rchi$: set of possible outcomes. $p_x$: probability density function, that satisfies: 1. $p_x(\bar{x}) \geq 0 \quad \forall\bar{x}\in\rchi$, 2. $\sum_{\bar{x}\in\rchi}p_x(\bar{x}) = 1$
 
 %----------------------------------------------------------------------------------------
 
